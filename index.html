@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>100 Streakkkkkkkk!!!!</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <canvas id="global-stars"></canvas>
+
+  <div id="emoji-container"></div>
+
+  <audio id="bg-audio" preload="auto">
+    <source src="about.mp3" type="audio/ogg">
+  </audio>
+
+  <div id="loader-screen">
+    <div class="streak-badge-container">
+      <svg class="streak-flame-svg" viewBox="0 0 300 380" fill="none">
+        <defs>
+          <linearGradient id="flameGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+            <stop offset="0%" stop-color="#a855f7" />
+            <stop offset="35%" stop-color="#ec4899" />
+            <stop offset="70%" stop-color="#ff1493" />
+            <stop offset="100%" stop-color="#ff66cc" />
+          </linearGradient>
+          <linearGradient id="innerFlameGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+            <stop offset="0%" stop-color="#ffb6e9" />
+            <stop offset="100%" stop-color="#ffffff" />
+          </linearGradient>
+        </defs>
+        <path d="M150 10 C160 50 190 90 220 110 C260 140 285 190 280 250 C270 320 220 370 150 370 C80 370 30 320 20 250 C15 195 40 145 75 115 C95 98 105 75 105 45 C115 75 130 90 150 10 Z" fill="url(#flameGrad)" />
+        <path d="M150 140 C175 190 200 230 190 280 C180 320 120 320 110 280 C100 230 125 190 150 140 Z" fill="url(#innerFlameGrad)" opacity="0.85" filter="blur(3px)" />
+      </svg>
+      <div class="streak-number-wrap">
+        <div class="ribbon-banner"></div>
+        <div class="streak-100-text">100</div>
+      </div>
+    </div>
+    <div class="loader-subtext">Loadingggg....</div>
+  </div>
+
+  <div id="countdown-screen">
+    <canvas id="matrix-canvas"></canvas>
+    <div id="countdown-number">3</div>
+  </div>
+
+  <div id="celebration-screen">
+    <div class="flame-candles-text">🔥🫶 HAPPY 100 STREAKKKKKK!!!!! 🫶🔥</div>
+  </div>
+
+  <div id="interactive-letter-screen">
+    <div class="instruction-hint" id="tap-instruction">👆 I-tap ang card para buksan</div>
+
+    <div class="closed-card" id="closed-card" onclick="openLetter()">
+      <div class="card-flame-wrap">
+        <svg viewBox="0 0 300 380" fill="none" style="width: 100%; height: 100%;">
+          <path d="M150 10 C160 50 190 90 220 110 C260 140 285 190 280 250 C270 320 220 370 150 370 C80 370 30 320 20 250 C15 195 40 145 75 115 C95 98 105 75 105 45 C115 75 130 90 150 10 Z" fill="url(#flameGrad)" />
+          <path d="M150 140 C175 190 200 230 190 280 C180 320 120 320 110 280 C100 230 125 190 150 140 Z" fill="#ffffff" opacity="0.9" filter="blur(3px)" />
+        </svg>
+      </div>
+      <svg class="card-hands-svg" viewBox="0 0 250 100" fill="none">
+        <path d="M20 100 C30 70 50 60 75 60 C85 60 90 68 95 65 C100 62 105 45 115 50 C122 53 120 70 115 78 C110 85 95 95 80 100 Z" fill="#ffe0bd" stroke="#ffb088" stroke-width="3" />
+        <circle cx="85" cy="58" r="7" fill="#ffe0bd" stroke="#ffb088" stroke-width="2.5"/>
+        <circle cx="100" cy="52" r="7" fill="#ffe0bd" stroke="#ffb088" stroke-width="2.5"/>
+        <circle cx="112" cy="58" r="7" fill="#ffe0bd" stroke="#ffb088" stroke-width="2.5"/>
+        <path d="M230 100 C220 70 200 60 175 60 C165 60 160 68 155 65 C150 62 145 45 135 50 C128 53 130 70 135 78 C140 85 155 95 170 100 Z" fill="#ffe0bd" stroke="#ffb088" stroke-width="3" />
+        <circle cx="165" cy="58" r="7" fill="#ffe0bd" stroke="#ffb088" stroke-width="2.5"/>
+        <circle cx="150" cy="52" r="7" fill="#ffe0bd" stroke="#ffb088" stroke-width="2.5"/>
+        <circle cx="138" cy="58" r="7" fill="#ffe0bd" stroke="#ffb088" stroke-width="2.5"/>
+      </svg>
+    </div>
+
+    <div class="opened-letter" id="opened-letter" onclick="handleLetterTap()">
+      <div class="letter-header-box">
+        <div class="letter-title" id="page-title">Happy 100 Days!</div>
+        <div class="heart-badge">💕</div>
+      </div>
+      <div class="pictures-split-frame">
+        <div class="pic-item"><img id="pic-left" src="anny/12.jpg" alt="Left Photo"></div>
+        <div class="pic-item"><img id="pic-right" src="anny/17.jpg" alt="Right Photo"></div>
+      </div>
+      <div class="tap-dots">
+        <div class="dot active" id="dot-1"></div>
+        <div class="dot" id="dot-2"></div>
+        <div class="dot" id="dot-3"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="flame-stage">
+    <canvas id="fireworks-canvas"></canvas>
+    <div class="flame-collage-container" id="flame-collage">
+      <div class="flame-center-badge streak-badge-container" id="center-badge">
+        <svg class="streak-flame-svg" viewBox="0 0 300 380" fill="none">
+          <use href="#flameGrad"/>
+          <path d="M150 10 C160 50 190 90 220 110 C260 140 285 190 280 250 C270 320 220 370 150 370 C80 370 30 320 20 250 C15 195 40 145 75 115 C95 98 105 75 105 45 C115 75 130 90 150 10 Z" fill="url(#flameGrad)" />
+          <path d="M150 140 C175 190 200 230 190 280 C180 320 120 320 110 280 C100 230 125 190 150 140 Z" fill="#ffffff" opacity="0.9" filter="blur(4px)" />
+        </svg>
+        <div class="streak-number-wrap">
+          <div class="ribbon-banner"></div>
+          <div class="streak-100-text">100</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
