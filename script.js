@@ -129,13 +129,13 @@
       },
       {
         title: " More streaks to comee 🔥",
-        imgLeft: "anny/15.jpg",
-        imgRight: "anny/24.jpg"
+        imgLeft: "15.jpg",
+        imgRight: "24.jpg"
       },
       {
         title: " Anny!!!! 💖",
-        imgLeft: "anny/28.jpg",
-        imgRight: "anny/18.jpg"
+        imgLeft: "28.jpg",
+        imgRight: "18.jpg"
       }
     ];
 
@@ -184,10 +184,10 @@ function buildFlameCollage() {
   
   // Listahan ng 16 mong mga litrato (I-edit ang mga file names/URL dito)
   const myPhotos = [
-    "anny/1.jpg", "anny/3.jpg", "anny/15.jpg", "anny/18.jpg",
-    "anny/24.jpg", "anny/33.jpg", "anny/30.jpg", "anny/36.jpg",
-    "anny/14.jpg", "anny/11.jpg", "anny/24.jpg", "anny/25.jpg",
-    "anny/19.jpg", "anny/41.jpg", "anny/34.jpg", "anny/12.jpg"
+    "1.jpg", "3.jpg", "15.jpg", "18.jpg",
+    "24.jpg", "33.jpg", "30.jpg", "36.jpg",
+    "14.jpg", "11.jpg", "24.jpg", "25.jpg",
+    "19.jpg", "41.jpg", "34.jpg", "12.jpg"
   ];
 
   const flamePoints = [
